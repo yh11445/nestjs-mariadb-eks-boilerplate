@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nestjs-mariadb-eks-boilerplate
-          image: ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/nestjs-mariadb-eks-boilerplate:latest
+          image: <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com/nestjs-mariadb-eks-boilerplate:latest
           ports:
             - containerPort: 3000
           resources:

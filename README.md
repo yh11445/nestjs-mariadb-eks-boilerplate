@@ -76,7 +76,15 @@ Make sure you have the following installed:
    docker push <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com/<repository-name>:latest
    ```
 
-4. **Deploy to EKS using Kubernetes manifests:**
+4. **Modify k8s/app-deployment.yaml:**
+
+- You **MUST MODIFY the image URL** in the `k8s/app-deployment.yaml` file to ensure Kubernetes pulls the correct image.
+
+   ```yaml
+   image: <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com/nestjs-mariadb-eks-boilerplate:latest
+   ```
+
+5. **Deploy to EKS using Kubernetes manifests:**
 
 - Update the Kubernetes deployment YAML files in the k8s directory with your image name and other configurations.
 - Apply the manifests:

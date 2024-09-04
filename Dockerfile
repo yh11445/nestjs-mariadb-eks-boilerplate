@@ -1,6 +1,6 @@
 ## [1. Build Stage]
 # Use an official Node.js runtime as a parent image
-FROM node:20.9.0 AS builder
+FROM node:20.17.0 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -20,7 +20,7 @@ RUN yarn build
 
 ## [2. Runtime Stage]
 # Use an official Node.js as runtime image
-FROM node:20.9.0
+FROM node:20.17.0
 
 # Set the working directory
 WORKDIR /app
@@ -32,4 +32,4 @@ COPY --from=builder /app .
 EXPOSE ${PORT}
 
 # Start application
-CMD yarn start:prod
+CMD ["yarn", "start:prod"]
